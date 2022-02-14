@@ -1,6 +1,6 @@
 site_name: Notes for 2.680 students.
 
-docs_dir: './'
+docs_dir: 'pages'
 
 theme:
     name: 'material'
