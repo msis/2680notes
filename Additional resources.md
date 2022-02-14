@@ -1,0 +1,4 @@
+- [The Missing CS Semester](https://missing.csail.mit.edu/)
+	- Highly recommended IAP class
+	- Talks about [[Shell]], [[git]], [[vim]], etc.
+- 
