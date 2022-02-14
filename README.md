@@ -3,3 +3,6 @@
 The aim of this repo is to answer your most frequent asked questions about [[C++]],[[MOOS]], [[MOOS-IvP]], etc.
 
 Feel free to create issues about subjects your interested in and contribute by forking and creating new [[pull request]]s.
+
+---
+I'm using [Obsidian](https://obsidian.md/) to organize these notes.
