@@ -2,5 +2,6 @@
   "legacyEditor": false,
   "livePreview": true,
   "newFileLocation": "folder",
-  "newFileFolderPath": "pages"
+  "newFileFolderPath": "pages",
+  "attachmentFolderPath": "./"
 }
