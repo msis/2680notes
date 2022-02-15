@@ -4,6 +4,8 @@ docs_dir: 'pages'
 
 theme:
     name: 'material'
+    features:
+      - content.code.annotate
     palette:
 
     # Light mode
