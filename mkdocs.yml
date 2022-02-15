@@ -1,8 +1,16 @@
-site_name: Notes for 2.680 students.
+site_name: Saad's 2.680 notes
+site_url: https://msis.github.io/2680notes/
+repo_url: https://github.com/msis/2680notes
+edit_uri: tree/main/pages
+site_description: Notes for MIT 2.680 students
+copyright: |
+  Copyright &copy; 2022 <a href="https://github.com/msis/"  target="_blank" rel="noopener">Mohamed Saad Ibn Seddik</a>
 
 docs_dir: 'pages'
 
 theme:
+    icon:
+      logo: fontawesome/solid/ship
     name: 'material'
     features:
       - content.code.annotate
@@ -14,7 +22,7 @@ theme:
       #primary: pink
       #accent: indigo
       toggle:
-        icon: material/toggle-switch-off-outline
+        icon: material/lightbulb-outline
         name: Switch to dark mode
 
     # Dark mode
@@ -23,7 +31,7 @@ theme:
       #primary: pink
       #accent: blue
       toggle:
-        icon: material/toggle-switch
+        icon: material/lightbulb
         name: Switch to light mode
 
 # Extensions
