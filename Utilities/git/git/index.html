@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Notes for MIT 2.680 students" name="description"/>
+<link href="https://msis.github.io/2680notes/Utilities/git/git/" rel="canonical"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.2.9" name="generator"/>
+<title>Git - Saad's 2.680 notes</title>
+<link href="../../../assets/stylesheets/main.120efc48.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.9647289d.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#how-it-works">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Saad's 2.680 notes" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Saad's 2.680 notes">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M192 32c0-17.67 14.3-32 32-32h128c17.7 0 32 14.33 32 32v32h48c26.5 0 48 21.49 48 48v128l44.4 14.8c23.2 7.7 29.5 37.5 11.5 53.9l-101 92.7c-16.2 9.3-34.7 15.1-50.9 15.1-19.6 0-40.8-7.7-59.2-20.4-22-15.5-51.5-15.5-73.6 0-17.2 11.8-38 20.4-59.2 20.4-16.2 0-34.7-5.8-50.9-15.2L40.09 308.7c-17.99-16.4-11.64-46.2 11.5-53.9L96 239.1v-128c0-25.61 21.5-48 48-48h48V32zm-32 186.7 107.8-36c13.1-4.3 27.3-4.3 40.4 0l107.8 36V128H160v90.7zM384 448c26.9 0 55.4-10.8 77.4-26.1h.1c11.9-8.5 28-7.8 39.2 1.7 14.3 11.9 32.5 21 50.6 25.2 17.2 4 27.9 21.3 23.9 38.5s-22.1 27.9-38.5 23.9c-24.5-5.8-44.8-16.6-58.2-25-29 15.5-61.5 25.8-94.5 25.8-31.9 0-60.6-9.9-80.4-18.9-5.9-2.6-11.1-5.3-15.6-7.7-4.5 2.4-9.7 5.1-15.6 7.7-19.8 9-48.5 18.9-80.4 18.9-33.9 0-65.5-10.3-94.5-25.8-13.38 8.4-33.71 19.2-58.23 25-17.21 4-34.417-6.7-38.428-23.9-4.011-17.2 6.69-34.5 23.898-38.5 18.1-4.2 36.22-13.3 50.57-25.2 11.15-9.5 27.29-10.2 39.19-1.7h.1c22.1 15.3 50.5 26.1 77.4 26.1 27.5 0 55-10.6 77.5-26.1 11.1-7.9 25.9-7.9 37 0 21.6 15.5 50 26.1 77.5 26.1z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Saad's 2.680 notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Git
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/msis/2680notes" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Saad's 2.680 notes" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Saad's 2.680 notes">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M192 32c0-17.67 14.3-32 32-32h128c17.7 0 32 14.33 32 32v32h48c26.5 0 48 21.49 48 48v128l44.4 14.8c23.2 7.7 29.5 37.5 11.5 53.9l-101 92.7c-16.2 9.3-34.7 15.1-50.9 15.1-19.6 0-40.8-7.7-59.2-20.4-22-15.5-51.5-15.5-73.6 0-17.2 11.8-38 20.4-59.2 20.4-16.2 0-34.7-5.8-50.9-15.2L40.09 308.7c-17.99-16.4-11.64-46.2 11.5-53.9L96 239.1v-128c0-25.61 21.5-48 48-48h48V32zm-32 186.7 107.8-36c13.1-4.3 27.3-4.3 40.4 0l107.8 36V128H160v90.7zM384 448c26.9 0 55.4-10.8 77.4-26.1h.1c11.9-8.5 28-7.8 39.2 1.7 14.3 11.9 32.5 21 50.6 25.2 17.2 4 27.9 21.3 23.9 38.5s-22.1 27.9-38.5 23.9c-24.5-5.8-44.8-16.6-58.2-25-29 15.5-61.5 25.8-94.5 25.8-31.9 0-60.6-9.9-80.4-18.9-5.9-2.6-11.1-5.3-15.6-7.7-4.5 2.4-9.7 5.1-15.6 7.7-19.8 9-48.5 18.9-80.4 18.9-33.9 0-65.5-10.3-94.5-25.8-13.38 8.4-33.71 19.2-58.23 25-17.21 4-34.417-6.7-38.428-23.9-4.011-17.2 6.69-34.5 23.898-38.5 18.1-4.2 36.22-13.3 50.57-25.2 11.15-9.5 27.29-10.2 39.19-1.7h.1c22.1 15.3 50.5 26.1 77.4 26.1 27.5 0 55-10.6 77.5-26.1 11.1-7.9 25.9-7.9 37 0 21.6 15.5 50 26.1 77.5 26.1z"></path></svg>
+</a>
+    Saad's 2.680 notes
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/msis/2680notes" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+        Collection of notes for 2.680 students
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Additional%20resources/">
+        Additional resources
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../MOOS-IvP/">
+        MOOS IvP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../MOOS/">
+        MOOS
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+          C++
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="C++" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          C++
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../C%2B%2B/C%2B%2B%20Compiler/">
+        C++ Compiler
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../C%2B%2B/C%2B%2B/">
+        C++
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+          PavLab
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="PavLab" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          PavLab
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../PavLab/00%20-%20pablo%20git/">
+        Configure PABLO's GitLab access
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+          Utilities
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Utilities" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          Utilities
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Shell/">
+        Shell
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ssh/">
+        Ssh
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_3" id="__nav_7_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_3">
+          Git
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Git" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_3">
+<span class="md-nav__icon md-icon"></span>
+          Git
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Git
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Git
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-it-works">
+    How it works
+  </a>
+<nav aria-label="How it works" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adding-changes-man-page">
+    Adding changes (man page)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#committing-man-page">
+    Committing (man page)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pushing-changes-to-remote-man-page">
+    Pushing changes to remote (man page)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remove-a-file-from-staging-man-page">
+    Remove a file from staging (man page)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#restore-file-to-last-committed-version-undo-current-modifications-man-page">
+    Restore file to last committed version (undo current modifications) (man page)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#undo-a-commit-man-page">
+    Undo a commit ⚠️ (man page)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#must-know-commands">
+    Must know commands
+  </a>
+<nav aria-label="Must know commands" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#status-of-changes-man-page">
+    Status of changes (man page)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#show-previous-commits-man-page">
+    Show previous commits (man page)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#switch-braches-man-page">
+    Switch braches (man page)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-scenario">
+    Example Scenario
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#more-on-git">
+    More on git
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pull%20request/">
+        Pull request
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+          Editors
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Editors" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          Editors
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../editors/emacs/">
+        Emacs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../editors/vim/">
+        Vim
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" id="__nav_8_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_3">
+          Vscode
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Vscode" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_3">
+<span class="md-nav__icon md-icon"></span>
+          Vscode
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../editors/vscode/00%20-%20Intro/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../editors/vscode/10%20-%20Setting%20things%20up/">
+        Setting things up
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../editors/vscode/20%20-%20Setting%20MOOS-IvP%20Project/">
+        Setting your MOOS-IvP Project in `vscode`
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../editors/vscode/21%20-%20Setting%20debugger/">
+        Setting debugger in `vscode`
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../editors/vscode/30%20-%20Building%20MOOS-IvP%20Project/">
+        Building MOOS-IvP Project
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../editors/vscode/50%20-%20PABLO/">
+        Working on PABLO boxes from `vscode`
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../editors/vscode/99%20-%20Tips/">
+        Tips
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-it-works">
+    How it works
+  </a>
+<nav aria-label="How it works" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adding-changes-man-page">
+    Adding changes (man page)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#committing-man-page">
+    Committing (man page)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pushing-changes-to-remote-man-page">
+    Pushing changes to remote (man page)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remove-a-file-from-staging-man-page">
+    Remove a file from staging (man page)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#restore-file-to-last-committed-version-undo-current-modifications-man-page">
+    Restore file to last committed version (undo current modifications) (man page)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#undo-a-commit-man-page">
+    Undo a commit ⚠️ (man page)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#must-know-commands">
+    Must know commands
+  </a>
+<nav aria-label="Must know commands" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#status-of-changes-man-page">
+    Status of changes (man page)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#show-previous-commits-man-page">
+    Show previous commits (man page)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#switch-braches-man-page">
+    Switch braches (man page)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-scenario">
+    Example Scenario
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#more-on-git">
+    More on git
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/msis/2680notes/tree/main/pages/Utilities/git/git.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<h1>Git</h1>
+<p><code>git</code> can simply be considered a distrubuted version control system.
+It basically keeps track of files on your computer but potentially remote servers as well (like gitlab,github,etc.).</p>
+<h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">¶</a></h2>
+<div class="mermaid">flowchart TB
+    add(Live) -- git add --&gt; stage(Staged)
+    stage -- git commit --&gt; commit(Committed)
+    stage -- git restore --staged --&gt; add
+    commit -- git reset --soft --&gt; stage
+    commit -- git push --&gt; push(Pushed)
+
+</div>
+<h3 id="adding-changes-man-page">Adding changes (<a href="https://git-scm.com/docs/git-add">man page</a>)<a class="headerlink" href="#adding-changes-man-page" title="Permanent link">¶</a></h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>git add file_name dir_name
+</code></pre></div>
+</td></tr></table>
+<h3 id="committing-man-page">Committing (<a href="https://git-scm.com/docs/git-commit">man page</a>)<a class="headerlink" href="#committing-man-page" title="Permanent link">¶</a></h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>git commit -m <span class="s2">"commit message"</span>
+</code></pre></div>
+</td></tr></table>
+<blockquote>
+<p>Be verbose about what changes happened since your last commit. Your future self will thank you.</p>
+</blockquote>
+<h3 id="pushing-changes-to-remote-man-page">Pushing changes to remote (<a href="https://git-scm.com/docs/git-push">man page</a>)<a class="headerlink" href="#pushing-changes-to-remote-man-page" title="Permanent link">¶</a></h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>git push remote_name branch_name
+</code></pre></div>
+</td></tr></table>
+<blockquote>
+<p><code>remote_name</code> is <code>origin</code> by default.
+To simply call <code>git push</code>, set up the default remote once by running <code>git push -u remote_name branch_name</code></p>
+</blockquote>
+<h3 id="remove-a-file-from-staging-man-page">Remove a file from staging (<a href="https://git-scm.com/docs/git-restore">man page</a>)<a class="headerlink" href="#remove-a-file-from-staging-man-page" title="Permanent link">¶</a></h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>git restore --staged file_name
+</code></pre></div>
+</td></tr></table>
+<h3 id="restore-file-to-last-committed-version-undo-current-modifications-man-page">Restore file to last committed version (undo current modifications) (<a href="https://git-scm.com/docs/git-restore">man page</a>)<a class="headerlink" href="#restore-file-to-last-committed-version-undo-current-modifications-man-page" title="Permanent link">¶</a></h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>git restore file_name
+</code></pre></div>
+</td></tr></table>
+<h3 id="undo-a-commit-man-page">Undo a commit ⚠️ (<a href="https://git-scm.com/docs/git-reset">man page</a>)<a class="headerlink" href="#undo-a-commit-man-page" title="Permanent link">¶</a></h3>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>git reset --soft HEAD^
+</code></pre></div>
+</td></tr></table>
+This will undo the last commit and put the changes back in staging.</p>
+<blockquote>
+<p>Be careful with this command. If you pushed the commit to the remote already, you will have to force a push as commit hashes will be different.</p>
+</blockquote>
+<h2 id="must-know-commands">Must know commands<a class="headerlink" href="#must-know-commands" title="Permanent link">¶</a></h2>
+<h3 id="status-of-changes-man-page">Status of changes (<a href="https://git-scm.com/docs/git-status">man page</a>)<a class="headerlink" href="#status-of-changes-man-page" title="Permanent link">¶</a></h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>git status
+</code></pre></div>
+</td></tr></table>
+<blockquote>
+<p>Use this all the time to know what changed in your tree.</p>
+</blockquote>
+<h3 id="show-previous-commits-man-page">Show previous commits (<a href="https://git-scm.com/docs/git-log">man page</a>)<a class="headerlink" href="#show-previous-commits-man-page" title="Permanent link">¶</a></h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>git log
+</code></pre></div>
+</td></tr></table>
+<blockquote>
+<p><code>git log --oneline --decorate --graph</code> to get a nice readable log</p>
+</blockquote>
+<h3 id="switch-braches-man-page">Switch braches (<a href="https://git-scm.com/docs/git-branch">man page</a>)<a class="headerlink" href="#switch-braches-man-page" title="Permanent link">¶</a></h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>git branch dev
+</code></pre></div>
+</td></tr></table>
+<blockquote>
+<p><code>git branch -b new_branch</code> will create <code>new_branch</code> and switch to it.</p>
+</blockquote>
+<h2 id="example-scenario">Example Scenario<a class="headerlink" href="#example-scenario" title="Permanent link">¶</a></h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span>
+<span class="normal"><a href="#__codelineno-9-8">8</a></span>
+<span class="normal"><a href="#__codelineno-9-9">9</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>edit file_name
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>git status
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>mkdir awesome_dir
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>edit awesome_dir/awesome_idea
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>git status
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>git add file_name awesome_dir
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>git status
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>git commit -m <span class="s2">"adds awesome idea and edits file_name"</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>git push
+</code></pre></div>
+</td></tr></table>
+<h2 id="more-on-git">More on git<a class="headerlink" href="#more-on-git" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="https://git-scm.com/">Official website</a></li>
+<li>Branching strategies:<ul>
+<li><a href="https://docs.gitlab.com/ee/topics/gitlab_flow.html">Gitlab Flow</a></li>
+<li><a href="https://docs.github.com/en/get-started/quickstart/github-flow">Github Flow</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops">Microsoft Branching Guidance</a></li>
+<li><a href="https://nvie.com/posts/a-successful-git-branching-model/">Git Flow</a></li>
+<li><a href="https://www.gitkraken.com/learn/git/best-practices/git-branch-strategy">Comparison of Strategies</a></li>
+</ul>
+</li>
+<li><a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">A Note About Git Commit Message</a></li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Ssh" class="md-footer__link md-footer__link--prev" href="../../ssh/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Ssh
+            </div>
+</div>
+</a>
+<a aria-label="Next: Pull request" class="md-footer__link md-footer__link--next" href="../pull%20request/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Pull request
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2022 <a href="https://github.com/msis/" rel="noopener" target="_blank">Mohamed Saad Ibn Seddik</a>
+</div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+<script src="../../../assets/refresh_on_toggle_theme.js"></script>
+<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({
+    theme: (JSON.parse(__md_get("__palette").index == 1)) ? 'dark' : 'light'
+});</script></body>
+</html>
